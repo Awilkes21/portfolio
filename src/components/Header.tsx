@@ -17,7 +17,7 @@ export function Header({ onThemeToggle, theme }: HeaderProps) {
     <header className="site-header sticky top-0 z-50 border-b backdrop-blur">
       <nav
         aria-label="Primary navigation"
-        className="mx-auto flex min-h-20 max-w-6xl flex-wrap items-center justify-between gap-x-5 gap-y-3 px-6 py-4 sm:px-8 lg:px-10"
+        className="mx-auto flex min-h-20 max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-3 sm:px-8 sm:py-4 lg:px-10"
       >
         <a className="group flex items-center gap-3" href="#home" aria-label="Andrew Wilkes home">
           <span className="brand-mark">
@@ -27,10 +27,10 @@ export function Header({ onThemeToggle, theme }: HeaderProps) {
             Andrew Wilkes
           </span>
         </a>
-        <div className="no-scrollbar order-3 flex w-full items-center gap-1 overflow-x-auto sm:order-none sm:w-auto sm:gap-2">
+        <div className="no-scrollbar order-3 -mx-1 flex w-[calc(100%+0.5rem)] items-center gap-1 overflow-x-auto px-1 sm:order-none sm:mx-0 sm:w-auto sm:gap-2 sm:px-0">
           {navItems.map((item) => (
             <a
-              className="nav-link focus-ring shrink-0 rounded-md border border-transparent px-3 py-2 text-sm font-medium transition"
+              className="nav-link focus-ring shrink-0 rounded-md border border-transparent px-2.5 py-2 text-sm font-medium transition sm:px-3"
               href={item.href}
               key={item.href}
             >

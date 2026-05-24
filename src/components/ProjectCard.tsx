@@ -19,7 +19,7 @@ export function ProjectCard({
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-lg border p-6 transition duration-200 ${
+      className={`group relative flex h-full flex-col overflow-hidden rounded-lg border p-5 transition duration-200 sm:p-6 ${
         matchesSelectedSkill
           ? "border-teal-300/80 bg-teal-300/10 shadow-soft"
           : "surface hover:-translate-y-0.5 hover:border-teal-300/60 hover:bg-white/[0.07]"
@@ -33,7 +33,7 @@ export function ProjectCard({
         }`}
       />
       <div>
-        <div className="mb-5 flex items-center justify-between gap-4">
+        <div className="mb-4 flex items-center justify-between gap-4 sm:mb-5">
           <span className="accent-text text-xs font-semibold uppercase tracking-[0.18em]">
             {project.category}
           </span>
@@ -67,7 +67,7 @@ export function ProjectCard({
           ))}
         </div>
 
-        <ul className="body-text mt-5 space-y-2 text-sm leading-6">
+        <ul className="body-text mt-4 space-y-2 text-sm leading-6 sm:mt-5">
           {project.highlights.map((highlight) => (
             <li className="flex gap-3" key={highlight}>
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-300" />
@@ -77,7 +77,7 @@ export function ProjectCard({
         </ul>
 
         {(project.githubUrl || project.demoUrl) && (
-          <div className="mt-auto flex flex-wrap gap-3 pt-6">
+          <div className="mt-auto flex flex-wrap gap-3 pt-5 sm:pt-6">
             {project.githubUrl ? (
               <a className="button-secondary focus-ring px-3 py-2 text-sm" href={project.githubUrl} rel="noreferrer" target="_blank">
                 Source

@@ -9,7 +9,7 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
   return (
     <button
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
-      className="theme-toggle focus-ring"
+      className="button-secondary focus-ring grid h-9 w-9 place-items-center"
       onClick={onToggle}
       type="button"
       title={`Switch to ${isDark ? "light" : "dark"} theme`}

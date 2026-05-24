@@ -12,7 +12,7 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
 
   return (
     <article
-      className={`relative overflow-hidden rounded-lg border p-6 transition duration-200 ${
+      className={`relative overflow-hidden rounded-lg border p-5 transition duration-200 sm:p-6 ${
         matchesSelectedSkill
           ? "border-teal-300/80 bg-teal-300/10 shadow-soft"
           : "surface"
@@ -28,7 +28,7 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
           <h3 className="heading-text text-xl font-semibold leading-7">{experience.company}</h3>
           <p className="accent-text mt-1 text-sm font-medium">{experience.role}</p>
         </div>
-        <p className="surface-strong body-text rounded-md border px-3 py-1.5 text-sm">
+        <p className="surface-strong body-text w-fit rounded-md border px-3 py-1.5 text-sm">
           {experience.period}
         </p>
       </div>

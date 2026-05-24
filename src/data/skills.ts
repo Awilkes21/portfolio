@@ -21,11 +21,8 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       "Git",
       "Docker",
-      "Docker Compose",
       "GitLab CI",
       "Bash",
-      "Makefile",
-      "Testing",
       "Jira",
       "VS Code",
       "Visual Studio",

@@ -11,10 +11,10 @@ type SectionProps = {
 export function Section({ children, description, eyebrow, id, title }: SectionProps) {
   return (
     <section
-      className="mx-auto w-full max-w-6xl scroll-mt-28 px-6 py-16 sm:px-8 sm:py-20 lg:px-10"
+      className="mx-auto w-full max-w-6xl scroll-mt-32 px-4 py-14 sm:scroll-mt-28 sm:px-8 sm:py-20 lg:px-10"
       id={id}
     >
-      <div className="mb-10 max-w-3xl border-t border-white/10 pt-8">
+      <div className="mb-8 max-w-3xl border-t border-white/10 pt-7 sm:mb-10 sm:pt-8">
         {eyebrow ? (
           <p className="accent-text mb-3 text-sm font-semibold uppercase tracking-[0.22em]">
             {eyebrow}

@@ -26,7 +26,7 @@ export const experiences: Experience[] = [
       "Improved reliability in a C/C++ code transformation tool used for automated dependency handling.",
       "Designed lightweight Bash and Makefile-based test workflows to strengthen coverage."
     ],
-    techStack: ["C++", "Bash", "Makefile", "Testing"]
+    techStack: ["C++", "Bash"]
   },
   {
     company: "Radiance Technologies",

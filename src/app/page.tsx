@@ -64,17 +64,17 @@ export default function Home() {
       <main>
         <section
           id="home"
-          className="relative mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-6xl flex-col justify-center px-6 py-16 sm:px-8 sm:py-20 lg:px-10"
+          className="relative mx-auto flex w-full max-w-6xl flex-col justify-center px-4 py-12 sm:min-h-[calc(100vh-5rem)] sm:px-8 sm:py-20 lg:px-10"
         >
           <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div>
               <p className="accent-text mb-4 text-sm font-semibold uppercase tracking-[0.24em]">
                 Software Engineer
               </p>
-              <h1 className="heading-text max-w-3xl text-5xl font-semibold leading-[0.98] sm:text-6xl lg:text-7xl">
+              <h1 className="heading-text max-w-3xl text-4xl font-semibold leading-[1.02] min-[380px]:text-5xl sm:text-6xl sm:leading-[0.98] lg:text-7xl">
                 Andrew Wilkes
               </h1>
-              <p className="body-text mt-6 max-w-2xl text-lg leading-8 sm:text-xl">
+              <p className="body-text mt-5 max-w-2xl text-base leading-7 sm:mt-6 sm:text-xl sm:leading-8">
                 Full-stack software engineer building reliable web applications,
                 data-rich interfaces, and practical tools for technical teams.
               </p>
@@ -94,28 +94,28 @@ export default function Home() {
               </div>
             </div>
 
-            <aside className="surface-strong relative overflow-hidden rounded-lg border p-6 shadow-soft backdrop-blur">
+            <aside className="surface-strong relative overflow-hidden rounded-lg border p-5 shadow-soft backdrop-blur sm:p-6">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-300 via-sky-300 to-amber-200" />
               <div className="grid gap-6">
                 <div className="border-b border-white/10 pb-5">
                   <p className="accent-text text-sm font-medium uppercase tracking-[0.18em]">
                     Current Focus
                   </p>
-                  <p className="heading-text mt-3 text-2xl font-semibold leading-snug">
+                  <p className="heading-text mt-3 text-xl font-semibold leading-snug sm:text-2xl">
                     Building practical software for complex, data-rich workflows.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="surface rounded-md border p-4">
-                    <p className="heading-text text-3xl font-semibold">{projectCount}</p>
-                    <p className="muted-text mt-1 text-xs font-medium uppercase tracking-[0.14em]">
+                  <div className="surface rounded-md border p-3 sm:p-4">
+                    <p className="heading-text text-2xl font-semibold sm:text-3xl">{projectCount}</p>
+                    <p className="muted-text mt-1 text-[0.68rem] font-medium uppercase tracking-[0.12em] sm:text-xs sm:tracking-[0.14em]">
                       Selected projects
                     </p>
                   </div>
-                  <div className="surface rounded-md border p-4">
-                    <p className="heading-text text-3xl font-semibold">3</p>
-                    <p className="muted-text mt-1 text-xs font-medium uppercase tracking-[0.14em]">
+                  <div className="surface rounded-md border p-3 sm:p-4">
+                    <p className="heading-text text-2xl font-semibold sm:text-3xl">3</p>
+                    <p className="muted-text mt-1 text-[0.68rem] font-medium uppercase tracking-[0.12em] sm:text-xs sm:tracking-[0.14em]">
                       Roles
                     </p>
                   </div>
@@ -156,7 +156,7 @@ export default function Home() {
           {selectedSkill ? (
             <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-teal-300/30 bg-teal-300/10 px-4 py-3 text-sm text-teal-50">
               <span>
-                Highlighting projects and experience that use <strong>{selectedSkill}</strong>.
+                Filter active: <strong>{selectedSkill}</strong>
               </span>
               <button
                 className="button-secondary focus-ring px-3 py-1.5 text-sm"
@@ -211,11 +211,11 @@ export default function Home() {
           eyebrow="Toolkit"
           id="skills"
           title="Skills"
-          description="Tools I use to build web applications, automation workflows, data utilities, and software for technical teams."
+          description="Click a skill to highlight where I have used it across projects and experience."
         >
           {selectedSkill ? (
             <div className="mb-5 flex flex-wrap items-center gap-3 text-sm">
-              <span className="muted-text">Selected skill:</span>
+              <span className="muted-text">Filter active:</span>
               <button
                 className="button-secondary focus-ring px-3 py-1.5 text-sm"
                 onClick={() => setSelectedSkill(null)}
