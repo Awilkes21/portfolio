@@ -21,6 +21,19 @@ const contactLinks = [
   }
 ];
 
+const focusItems = [
+  "Full-stack application development",
+  "Simulation workflow automation",
+  "Data visualization for engineering analysis",
+  "Developer tools that reduce repetitive process"
+];
+
+const profileDetails = [
+  { label: "Location", value: "Dayton, OH" },
+  { label: "Education", value: "B.S. Computer Science, Ohio State" },
+  { label: "Current", value: "Junior Software Engineer at Radiance" }
+];
+
 export default function Home() {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
@@ -34,14 +47,14 @@ export default function Home() {
       <main>
         <section
           id="home"
-          className="relative mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-6xl flex-col justify-center px-6 py-20 sm:px-8 lg:px-10"
+          className="relative mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-6xl flex-col justify-center px-6 py-16 sm:px-8 sm:py-20 lg:px-10"
         >
           <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-teal-300">
                 Software Engineer
               </p>
-              <h1 className="max-w-3xl text-5xl font-semibold leading-tight text-white sm:text-6xl lg:text-7xl">
+              <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] text-white sm:text-6xl lg:text-7xl">
                 Andrew Wilkes
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
@@ -49,25 +62,26 @@ export default function Home() {
                 interfaces, and practical systems that make technical workflows easier
                 to understand and operate.
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <a className="rounded-md bg-teal-300 px-5 py-3 text-sm font-semibold text-ink-950 transition hover:bg-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="#projects">
+              <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
+                <a className="rounded-md bg-teal-300 px-5 py-3 text-center text-sm font-semibold text-ink-950 transition hover:bg-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="#projects">
                   Projects
                 </a>
-                <a className="rounded-md border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="/resume.pdf">
+                <a className="rounded-md border border-slate-600 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:bg-white/[0.04] hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="/resume.pdf">
                   Resume
                 </a>
-                <a className="rounded-md border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="https://github.com/Awilkes21" rel="noreferrer" target="_blank">
+                <a className="rounded-md border border-slate-600 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:bg-white/[0.04] hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="https://github.com/Awilkes21" rel="noreferrer" target="_blank">
                   GitHub
                 </a>
-                <a className="rounded-md border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="https://www.linkedin.com/in/andrewdwilkes/" rel="noreferrer" target="_blank">
+                <a className="rounded-md border border-slate-600 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:bg-white/[0.04] hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="https://www.linkedin.com/in/andrewdwilkes/" rel="noreferrer" target="_blank">
                   LinkedIn
                 </a>
               </div>
             </div>
 
-            <div className="relative rounded-lg border border-white/10 bg-ink-900/70 p-6 shadow-soft backdrop-blur">
-              <div className="grid gap-5">
-                <div>
+            <aside className="relative overflow-hidden rounded-lg border border-white/10 bg-ink-900/75 p-6 shadow-soft backdrop-blur">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-300 via-sky-300 to-amber-200" />
+              <div className="grid gap-6">
+                <div className="border-b border-white/10 pb-5">
                   <p className="text-sm font-medium uppercase tracking-[0.18em] text-teal-300">
                     Current Focus
                   </p>
@@ -77,22 +91,28 @@ export default function Home() {
                 </div>
 
                 <div className="grid gap-3">
-                  {[
-                    "Full-stack application development",
-                    "Simulation tooling and workflow automation",
-                    "Data visualization for engineering analysis",
-                    "Developer tools that reduce repetitive process"
-                  ].map((item) => (
+                  {focusItems.map((item) => (
                     <div
-                      className="rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-slate-200"
+                      className="rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-sm leading-6 text-slate-200"
                       key={item}
                     >
                       {item}
                     </div>
                   ))}
                 </div>
+
+                <dl className="grid gap-3 border-t border-white/10 pt-5">
+                  {profileDetails.map((item) => (
+                    <div className="grid gap-1 sm:grid-cols-[6.5rem_1fr]" key={item.label}>
+                      <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                        {item.label}
+                      </dt>
+                      <dd className="text-sm font-medium text-slate-200">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
-            </div>
+            </aside>
           </div>
         </section>
 
@@ -103,16 +123,16 @@ export default function Home() {
           description="A focused set of public projects that show full-stack product thinking, automation, data workflows, and team development."
         >
           {selectedSkill ? (
-            <div className="mb-5 flex flex-wrap items-center gap-3 rounded-lg border border-teal-300/30 bg-teal-300/10 px-4 py-3 text-sm text-teal-50">
+            <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-teal-300/30 bg-teal-300/10 px-4 py-3 text-sm text-teal-50">
               <span>
-                Showing projects that use <strong>{selectedSkill}</strong>.
+                Highlighting projects and experience that use <strong>{selectedSkill}</strong>.
               </span>
               <button
-                className="rounded-md border border-teal-200/40 px-3 py-1 font-semibold text-teal-100 transition hover:bg-teal-200 hover:text-ink-950 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950"
+                className="rounded-md border border-teal-200/40 px-3 py-1.5 font-semibold text-teal-100 transition hover:bg-teal-200 hover:text-ink-950 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950"
                 onClick={() => setSelectedSkill(null)}
                 type="button"
               >
-                Clear
+                Clear filter
               </button>
             </div>
           ) : null}
@@ -171,14 +191,14 @@ export default function Home() {
           <div className="grid gap-4 sm:grid-cols-3">
             {contactLinks.map((link) => (
               <a
-                className="rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:border-teal-300/70 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950"
+                className="group rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-0.5 hover:border-teal-300/70 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950"
                 href={link.href}
                 key={link.label}
                 rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
               >
                 <span className="text-sm font-medium text-slate-400">{link.label}</span>
-                <span className="mt-2 block break-words text-base font-semibold text-white">
+                <span className="mt-2 block break-words text-base font-semibold text-white transition group-hover:text-teal-100">
                   {link.value}
                 </span>
               </a>

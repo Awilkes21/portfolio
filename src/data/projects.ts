@@ -55,7 +55,7 @@ export const projects: Project[] = [
     title: "Global Natural Stones",
     description:
       "An Electron desktop application built with a small team for a local business partnership.",
-    techStack: ["Electron", "JavaScript", "HTML", "CSS"],
+    techStack: ["Electron", "JavaScript", "HTML/CSS"],
     highlights: [
       "Focused on packaging business workflows into a local desktop experience",
       "Developed collaboratively and later archived to GitHub as a public source snapshot"
