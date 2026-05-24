@@ -57,11 +57,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen overflow-hidden">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <Header
         onThemeToggle={() => setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"))}
         theme={theme}
       />
-      <main>
+      <main id="main-content">
         <section
           id="home"
           className="relative mx-auto flex w-full max-w-6xl flex-col justify-center px-4 py-12 sm:min-h-[calc(100vh-5rem)] sm:px-8 sm:py-20 lg:px-10"

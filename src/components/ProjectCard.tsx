@@ -79,12 +79,24 @@ export function ProjectCard({
         {(project.githubUrl || project.demoUrl) && (
           <div className="mt-auto flex flex-wrap gap-3 pt-5 sm:pt-6">
             {project.githubUrl ? (
-              <a className="button-secondary focus-ring px-3 py-2 text-sm" href={project.githubUrl} rel="noreferrer" target="_blank">
+              <a
+                aria-label={`View ${project.title} source code`}
+                className="button-secondary focus-ring px-3 py-2 text-sm"
+                href={project.githubUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
                 Source
               </a>
             ) : null}
             {project.demoUrl ? (
-              <a className="button-primary focus-ring px-3 py-2 text-sm" href={project.demoUrl} rel="noreferrer" target="_blank">
+              <a
+                aria-label={`View ${project.title} demo`}
+                className="button-primary focus-ring px-3 py-2 text-sm"
+                href={project.demoUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
                 Demo
               </a>
             ) : null}
