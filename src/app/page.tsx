@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExperienceCard } from "@/components/ExperienceCard";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -22,20 +22,34 @@ const contactLinks = [
 ];
 
 const focusItems = [
-  "Full-stack application development",
-  "Simulation workflow automation",
-  "Data visualization for engineering analysis",
-  "Developer tools that reduce repetitive process"
+  "Web apps for engineering teams",
+  "Dashboards for comparing complex data",
+  "Automation around repetitive engineering processes"
 ];
 
 const profileDetails = [
-  { label: "Location", value: "Dayton, OH" },
-  { label: "Education", value: "B.S. Computer Science, Ohio State" },
-  { label: "Current", value: "Junior Software Engineer at Radiance" }
+  { label: "Education", value: "B.S. Computer Science, The Ohio State University" },
+  { label: "Current", value: "Modeling & Simulation Engineer at Radiance Technologies" }
 ];
+
+const projectCount = projects.length;
 
 export default function Home() {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") {
+      return "dark";
+    }
+
+    const savedTheme = window.localStorage.getItem("theme");
+    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    return savedTheme === "light" || (!savedTheme && prefersLight) ? "light" : "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const handleSkillSelect = (skill: string) => {
     setSelectedSkill((currentSkill) => (currentSkill === skill ? null : skill));
@@ -43,7 +57,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen overflow-hidden">
-      <Header />
+      <Header
+        onThemeToggle={() => setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"))}
+        theme={theme}
+      />
       <main>
         <section
           id="home"
@@ -51,49 +68,63 @@ export default function Home() {
         >
           <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-teal-300">
+              <p className="accent-text mb-4 text-sm font-semibold uppercase tracking-[0.24em]">
                 Software Engineer
               </p>
-              <h1 className="max-w-3xl text-5xl font-semibold leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+              <h1 className="heading-text max-w-3xl text-5xl font-semibold leading-[0.98] sm:text-6xl lg:text-7xl">
                 Andrew Wilkes
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                Full-stack software engineer focused on analysis tools, data-rich
-                interfaces, and practical systems that make technical workflows easier
-                to understand and operate.
+              <p className="body-text mt-6 max-w-2xl text-lg leading-8 sm:text-xl">
+                Full-stack software engineer building reliable web applications,
+                data-rich interfaces, and practical tools for technical teams.
               </p>
               <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
-                <a className="rounded-md bg-teal-300 px-5 py-3 text-center text-sm font-semibold text-ink-950 transition hover:bg-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="#projects">
+                <a className="button-primary focus-ring px-5 py-3 text-center text-sm" href="#projects">
                   Projects
                 </a>
-                <a className="rounded-md border border-slate-600 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:bg-white/[0.04] hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="/resume.pdf">
+                <a className="button-muted focus-ring px-5 py-3 text-center text-sm" href="/resume.pdf" rel="noreferrer" target="_blank">
                   Resume
                 </a>
-                <a className="rounded-md border border-slate-600 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:bg-white/[0.04] hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="https://github.com/Awilkes21" rel="noreferrer" target="_blank">
+                <a className="button-muted focus-ring px-5 py-3 text-center text-sm" href="https://github.com/Awilkes21" rel="noreferrer" target="_blank">
                   GitHub
                 </a>
-                <a className="rounded-md border border-slate-600 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-teal-300 hover:bg-white/[0.04] hover:text-teal-200 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950" href="https://www.linkedin.com/in/andrewdwilkes/" rel="noreferrer" target="_blank">
+                <a className="button-muted focus-ring px-5 py-3 text-center text-sm" href="https://www.linkedin.com/in/andrewdwilkes/" rel="noreferrer" target="_blank">
                   LinkedIn
                 </a>
               </div>
             </div>
 
-            <aside className="relative overflow-hidden rounded-lg border border-white/10 bg-ink-900/75 p-6 shadow-soft backdrop-blur">
+            <aside className="surface-strong relative overflow-hidden rounded-lg border p-6 shadow-soft backdrop-blur">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-300 via-sky-300 to-amber-200" />
               <div className="grid gap-6">
                 <div className="border-b border-white/10 pb-5">
-                  <p className="text-sm font-medium uppercase tracking-[0.18em] text-teal-300">
+                  <p className="accent-text text-sm font-medium uppercase tracking-[0.18em]">
                     Current Focus
                   </p>
-                  <p className="mt-3 text-2xl font-semibold leading-snug text-white">
-                    Building practical tools for analysis-heavy engineering work.
+                  <p className="heading-text mt-3 text-2xl font-semibold leading-snug">
+                    Building practical software for complex, data-rich workflows.
                   </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="surface rounded-md border p-4">
+                    <p className="heading-text text-3xl font-semibold">{projectCount}</p>
+                    <p className="muted-text mt-1 text-xs font-medium uppercase tracking-[0.14em]">
+                      Selected projects
+                    </p>
+                  </div>
+                  <div className="surface rounded-md border p-4">
+                    <p className="heading-text text-3xl font-semibold">3</p>
+                    <p className="muted-text mt-1 text-xs font-medium uppercase tracking-[0.14em]">
+                      Roles
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid gap-3">
                   {focusItems.map((item) => (
                     <div
-                      className="rounded-md border border-white/10 bg-white/[0.04] px-4 py-3 text-sm leading-6 text-slate-200"
+                      className="surface body-text rounded-md border px-4 py-3 text-sm leading-6"
                       key={item}
                     >
                       {item}
@@ -104,10 +135,10 @@ export default function Home() {
                 <dl className="grid gap-3 border-t border-white/10 pt-5">
                   {profileDetails.map((item) => (
                     <div className="grid gap-1 sm:grid-cols-[6.5rem_1fr]" key={item.label}>
-                      <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      <dt className="muted-text text-xs font-semibold uppercase tracking-[0.16em]">
                         {item.label}
                       </dt>
-                      <dd className="text-sm font-medium text-slate-200">{item.value}</dd>
+                      <dd className="body-text text-sm font-medium">{item.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -128,7 +159,7 @@ export default function Home() {
                 Highlighting projects and experience that use <strong>{selectedSkill}</strong>.
               </span>
               <button
-                className="rounded-md border border-teal-200/40 px-3 py-1.5 font-semibold text-teal-100 transition hover:bg-teal-200 hover:text-ink-950 focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950"
+                className="button-secondary focus-ring px-3 py-1.5 text-sm"
                 onClick={() => setSelectedSkill(null)}
                 type="button"
               >
@@ -136,14 +167,26 @@ export default function Home() {
               </button>
             </div>
           ) : null}
-          <div className="grid gap-5 md:grid-cols-2">
-            {projects.map((project) => (
+          <div className="grid gap-5">
+            {projects[0] ? (
               <ProjectCard
-                key={project.title}
-                project={project}
+                index={0}
+                key={projects[0].title}
+                project={projects[0]}
                 selectedSkill={selectedSkill}
+                variant="featured"
               />
-            ))}
+            ) : null}
+            <div className="grid gap-5 md:grid-cols-2">
+              {projects.slice(1).map((project, index) => (
+                <ProjectCard
+                  index={index + 1}
+                  key={project.title}
+                  project={project}
+                  selectedSkill={selectedSkill}
+                />
+              ))}
+            </div>
           </div>
         </Section>
 
@@ -170,6 +213,18 @@ export default function Home() {
           title="Skills"
           description="Tools I use to build web applications, automation workflows, data utilities, and software for technical teams."
         >
+          {selectedSkill ? (
+            <div className="mb-5 flex flex-wrap items-center gap-3 text-sm">
+              <span className="muted-text">Selected skill:</span>
+              <button
+                className="button-secondary focus-ring px-3 py-1.5 text-sm"
+                onClick={() => setSelectedSkill(null)}
+                type="button"
+              >
+                {selectedSkill} x
+              </button>
+            </div>
+          ) : null}
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {skillGroups.map((group) => (
               <SkillGroup

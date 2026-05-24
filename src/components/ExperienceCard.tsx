@@ -15,7 +15,7 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
       className={`relative overflow-hidden rounded-lg border p-6 transition duration-200 ${
         matchesSelectedSkill
           ? "border-teal-300/80 bg-teal-300/10 shadow-soft"
-          : "border-white/10 bg-white/[0.04]"
+          : "surface"
       } ${selectedSkill && !matchesSelectedSkill ? "opacity-45" : ""}`}
     >
       <div
@@ -25,14 +25,14 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
       />
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h3 className="text-xl font-semibold leading-7 text-white">{experience.company}</h3>
-          <p className="mt-1 text-sm font-medium text-teal-200">{experience.role}</p>
+          <h3 className="heading-text text-xl font-semibold leading-7">{experience.company}</h3>
+          <p className="accent-text mt-1 text-sm font-medium">{experience.role}</p>
         </div>
-        <p className="rounded-md border border-white/10 bg-ink-900/70 px-3 py-1.5 text-sm text-slate-300">
+        <p className="surface-strong body-text rounded-md border px-3 py-1.5 text-sm">
           {experience.period}
         </p>
       </div>
-      <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-300">
+      <ul className="body-text mt-5 space-y-2 text-sm leading-6">
         {experience.details.map((detail) => (
           <li className="flex gap-3" key={detail}>
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-300" />

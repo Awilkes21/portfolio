@@ -8,8 +8,8 @@ type SkillGroupProps = {
 
 export function SkillGroup({ group, onSkillSelect, selectedSkill }: SkillGroupProps) {
   return (
-    <article className="rounded-lg border border-white/10 bg-white/[0.04] p-5">
-      <h3 className="text-base font-semibold text-white">{group.title}</h3>
+    <article className="surface rounded-lg border p-5">
+      <h3 className="heading-text text-base font-semibold">{group.title}</h3>
       <div className="mt-5 flex flex-wrap gap-2">
         {group.skills.map((skill) => (
           <button

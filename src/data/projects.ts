@@ -1,4 +1,5 @@
 export type Project = {
+  category: string;
   title: string;
   description: string;
   techStack: string[];
@@ -9,16 +10,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Leftovers",
-    description:
-      "A capstone team project for recipe recommendation, built as a full-stack app for searching recipes and saving user preferences.",
-    techStack: ["Python", "Flask", "JavaScript", "HTML/CSS", "Elasticsearch", "SQLite", "Docker"],
-    highlights: [
-      "Built with a team as a senior capstone project",
-      "Combined recipe search, authentication, saved preferences, and personalized recommendations"
-    ]
-  },
-  {
+    category: "Analytics",
     title: "Relay",
     description:
       "A baseball analytics workspace for comparing pitcher and team behavior across time, built around fast local data exploration.",
@@ -30,6 +22,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Awilkes21/Relay"
   },
   {
+    category: "Product",
     title: "Axiom",
     description:
       "A full-stack esports operations platform for coordinating scrims, schedules, team discovery, and player profiles.",
@@ -41,6 +34,19 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Awilkes21/axiom"
   },
   {
+    category: "Capstone",
+    title: "Leftovers",
+    description:
+      "A capstone team project for recipe recommendation, built as a full-stack app for searching recipes and saving user preferences.",
+    techStack: ["Python", "Flask", "JavaScript", "HTML/CSS", "Elasticsearch", "SQLite", "Docker"],
+    highlights: [
+      "Built with a team as a senior capstone project",
+      "Combined recipe search, authentication, saved preferences, and personalized recommendations"
+    ],
+    githubUrl: "https://github.com/ArnaudCabello/CSE5914Leftovers"
+  },
+  {
+    category: "Game",
     title: "CSE3902 Zelda Game",
     description:
       "A C# game project recreating a level from The Legend of Zelda (1987) as part of a five-person team.",
@@ -52,6 +58,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Awilkes21/CSE3902-Zelda-Game"
   },
   {
+    category: "Desktop",
     title: "Global Natural Stones",
     description:
       "An Electron desktop application built with a small team for a local business partnership.",

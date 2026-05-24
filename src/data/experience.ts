@@ -9,7 +9,7 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: "Radiance Technologies",
-    role: "Junior Software Engineer",
+    role: "Modeling & Simulation Engineer",
     period: "Jun 2024 - Present",
     details: [
       "Build full-stack tools for simulation analysis, data visualization, and cross-system workflow automation.",
@@ -20,7 +20,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Tangram Flex",
-    role: "Software Engineering Intern",
+    role: "Software Engineer Intern",
     period: "May 2023 - Aug 2023",
     details: [
       "Improved reliability in a C/C++ code transformation tool used for automated dependency handling.",
