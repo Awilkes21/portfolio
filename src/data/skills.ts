@@ -14,7 +14,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Data & Platforms",
-    skills: ["DuckDB", "PostgreSQL", "SQLite", "Elasticsearch", "Discord API", "WebSockets"]
+    skills: ["DuckDB", "PostgreSQL", "SQLite", "Elasticsearch", "WebSockets"]
   },
   {
     title: "Tools",

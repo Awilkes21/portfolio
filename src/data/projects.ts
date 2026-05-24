@@ -41,17 +41,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Awilkes21/axiom"
   },
   {
-    title: "Awilkerboard",
-    description:
-      "A Discord automation bot for tracking reaction thresholds and posting configured announcements.",
-    techStack: ["Python", "Discord API"],
-    highlights: [
-      "Provides slash commands for configuring tracked reactions and target channels",
-      "Turns lightweight community rules into repeatable server automation"
-    ],
-    githubUrl: "https://github.com/Awilkes21/awilkerboard"
-  },
-  {
     title: "CSE3902 Zelda Game",
     description:
       "A C# game project recreating a level from The Legend of Zelda (1987) as part of a five-person team.",
