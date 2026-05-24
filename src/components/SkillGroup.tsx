@@ -14,10 +14,10 @@ export function SkillGroup({ group, onSkillSelect, selectedSkill }: SkillGroupPr
         {group.skills.map((skill) => (
           <button
             aria-pressed={selectedSkill === skill}
-            className={`cursor-pointer rounded-md border px-3 py-1.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950 ${
+            className={`focus-ring cursor-pointer rounded-md border px-3 py-1.5 text-left text-sm transition ${
               selectedSkill === skill
-                ? "border-teal-300 bg-teal-300 text-ink-950"
-                : "border-white/10 bg-ink-900/90 text-slate-200 hover:-translate-y-0.5 hover:border-teal-300/70 hover:text-teal-100"
+                ? "accent-border accent-chip-selected"
+                : "border-white/10 bg-ink-900/90 text-slate-200 hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
             }`}
             key={skill}
             onClick={() => onSkillSelect?.(skill)}

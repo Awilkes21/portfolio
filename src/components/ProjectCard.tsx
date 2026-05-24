@@ -21,15 +21,15 @@ export function ProjectCard({
     <article
       className={`group relative flex h-full flex-col overflow-hidden rounded-lg border p-5 transition duration-200 sm:p-6 ${
         matchesSelectedSkill
-          ? "border-teal-300/80 bg-teal-300/10 shadow-soft"
-          : "surface hover:-translate-y-0.5 hover:border-teal-300/60 hover:bg-white/[0.07]"
+          ? "accent-border accent-bg-soft shadow-soft"
+          : "surface hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:bg-white/[0.07]"
       } ${selectedSkill && !matchesSelectedSkill ? "opacity-45" : ""} ${
         variant === "featured" ? "md:grid md:grid-cols-[0.9fr_1.1fr] md:gap-8" : ""
       }`}
     >
       <div
         className={`absolute inset-x-0 top-0 h-1 ${
-          matchesSelectedSkill ? "bg-teal-300" : "bg-white/10 group-hover:bg-teal-300/70"
+          matchesSelectedSkill ? "accent-bg" : "bg-white/10 group-hover:bg-[color:var(--accent)]"
         }`}
       />
       <div>
@@ -57,8 +57,8 @@ export function ProjectCard({
             <span
               className={`rounded-md px-2.5 py-1 text-xs font-medium transition ${
                 selectedSkill === tech
-                  ? "bg-teal-300 text-ink-950"
-                  : "bg-teal-300/10 text-teal-100"
+                  ? "accent-chip-selected"
+                  : "accent-chip"
               }`}
               key={tech}
             >
@@ -70,7 +70,7 @@ export function ProjectCard({
         <ul className="body-text mt-4 space-y-2 text-sm leading-6 sm:mt-5">
           {project.highlights.map((highlight) => (
             <li className="flex gap-3" key={highlight}>
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-300" />
+              <span className="accent-bg mt-2 h-1.5 w-1.5 shrink-0 rounded-full" />
               <span>{highlight}</span>
             </li>
           ))}

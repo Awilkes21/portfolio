@@ -95,7 +95,7 @@ export default function Home() {
             </div>
 
             <aside className="surface-strong relative overflow-hidden rounded-lg border p-5 shadow-soft backdrop-blur sm:p-6">
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-300 via-sky-300 to-amber-200" />
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[color:var(--accent)] via-sky-300 to-[color:var(--warm-accent)]" />
               <div className="grid gap-6">
                 <div className="border-b border-white/10 pb-5">
                   <p className="accent-text text-sm font-medium uppercase tracking-[0.18em]">
@@ -154,7 +154,7 @@ export default function Home() {
           description="A focused set of public projects that show full-stack product thinking, automation, data workflows, and team development."
         >
           {selectedSkill ? (
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-teal-300/30 bg-teal-300/10 px-4 py-3 text-sm text-teal-50">
+            <div className="accent-border-soft accent-bg-soft body-text mb-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border px-4 py-3 text-sm">
               <span>
                 Filter active: <strong>{selectedSkill}</strong>
               </span>
@@ -246,14 +246,14 @@ export default function Home() {
           <div className="grid gap-4 sm:grid-cols-3">
             {contactLinks.map((link) => (
               <a
-                className="group rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-0.5 hover:border-teal-300/70 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-teal-200 focus:ring-offset-2 focus:ring-offset-ink-950"
+                className="surface focus-ring group rounded-lg border p-5 transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:bg-white/[0.07]"
                 href={link.href}
                 key={link.label}
                 rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
               >
                 <span className="text-sm font-medium text-slate-400">{link.label}</span>
-                <span className="mt-2 block break-words text-base font-semibold text-white transition group-hover:text-teal-100">
+                <span className="heading-text mt-2 block break-words text-base font-semibold transition group-hover:text-[color:var(--accent)]">
                   {link.value}
                 </span>
               </a>

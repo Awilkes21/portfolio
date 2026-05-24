@@ -14,13 +14,13 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
     <article
       className={`relative overflow-hidden rounded-lg border p-5 transition duration-200 sm:p-6 ${
         matchesSelectedSkill
-          ? "border-teal-300/80 bg-teal-300/10 shadow-soft"
+          ? "accent-border accent-bg-soft shadow-soft"
           : "surface"
       } ${selectedSkill && !matchesSelectedSkill ? "opacity-45" : ""}`}
     >
       <div
         className={`absolute left-0 top-0 h-full w-1 ${
-          matchesSelectedSkill ? "bg-teal-300" : "bg-white/10"
+          matchesSelectedSkill ? "accent-bg" : "bg-white/10"
         }`}
       />
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -35,7 +35,7 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
       <ul className="body-text mt-5 space-y-2 text-sm leading-6">
         {experience.details.map((detail) => (
           <li className="flex gap-3" key={detail}>
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-300" />
+            <span className="accent-bg mt-2 h-1.5 w-1.5 shrink-0 rounded-full" />
             <span>{detail}</span>
           </li>
         ))}
@@ -45,8 +45,8 @@ export function ExperienceCard({ experience, selectedSkill }: ExperienceCardProp
           <span
             className={`rounded-md px-2.5 py-1 text-xs font-medium transition ${
               selectedSkill === tech
-                ? "bg-teal-300 text-ink-950"
-                : "bg-teal-300/10 text-teal-100"
+                ? "accent-chip-selected"
+                : "accent-chip"
             }`}
             key={tech}
           >
