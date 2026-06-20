@@ -19,7 +19,8 @@ export const projects: Project[] = [
       "Pairs a React and TypeScript interface with a FastAPI data service",
       "Uses local baseball data ingestion to support repeatable analysis and visual comparison"
     ],
-    githubUrl: "https://github.com/Awilkes21/Relay"
+    githubUrl: "https://github.com/Awilkes21/Relay",
+    demoUrl: "https://relay-pfvu.onrender.com/"
   },
   {
     category: "Product",
