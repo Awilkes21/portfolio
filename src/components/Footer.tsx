@@ -1,3 +1,5 @@
+import { trackOutboundClick } from "@/lib/analytics";
+
 export function Footer() {
   return (
     <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-400">
@@ -7,6 +9,11 @@ export function Footer() {
         <a
           className="accent-text font-semibold hover:underline"
           href="https://github.com/Awilkes21/portfolio"
+          onClick={() =>
+            trackOutboundClick("footer_source", {
+              url: "https://github.com/Awilkes21/portfolio"
+            })
+          }
           rel="noreferrer"
           target="_blank"
         >

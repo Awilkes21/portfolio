@@ -10,6 +10,7 @@ import { SkillGroup } from "@/components/SkillGroup";
 import { experiences } from "@/data/experience";
 import { projects } from "@/data/projects";
 import { skillGroups } from "@/data/skills";
+import { trackOutboundClick } from "@/lib/analytics";
 
 const contactLinks = [
   { label: "Email", href: "mailto:awilkes.dev@gmail.com", value: "awilkes.dev@gmail.com" },
@@ -85,13 +86,41 @@ export default function Home() {
                 <a className="button-primary focus-ring px-5 py-3 text-center text-sm" href="#projects">
                   Projects
                 </a>
-                <a className="button-muted focus-ring px-5 py-3 text-center text-sm" href="/resume.pdf" rel="noreferrer" target="_blank">
+                <a
+                  className="button-muted focus-ring px-5 py-3 text-center text-sm"
+                  href="/resume.pdf"
+                  onClick={() => trackOutboundClick("resume", { location: "hero" })}
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   Resume
                 </a>
-                <a className="button-muted focus-ring px-5 py-3 text-center text-sm" href="https://github.com/Awilkes21" rel="noreferrer" target="_blank">
+                <a
+                  className="button-muted focus-ring px-5 py-3 text-center text-sm"
+                  href="https://github.com/Awilkes21"
+                  onClick={() =>
+                    trackOutboundClick("hero", {
+                      label: "GitHub",
+                      url: "https://github.com/Awilkes21"
+                    })
+                  }
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   GitHub
                 </a>
-                <a className="button-muted focus-ring px-5 py-3 text-center text-sm" href="https://www.linkedin.com/in/andrewdwilkes/" rel="noreferrer" target="_blank">
+                <a
+                  className="button-muted focus-ring px-5 py-3 text-center text-sm"
+                  href="https://www.linkedin.com/in/andrewdwilkes/"
+                  onClick={() =>
+                    trackOutboundClick("hero", {
+                      label: "LinkedIn",
+                      url: "https://www.linkedin.com/in/andrewdwilkes/"
+                    })
+                  }
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   LinkedIn
                 </a>
               </div>
@@ -252,6 +281,12 @@ export default function Home() {
                 className="surface focus-ring group rounded-lg border p-5 transition hover:-translate-y-0.5 hover:border-[color:var(--accent)] hover:bg-white/[0.07]"
                 href={link.href}
                 key={link.label}
+                onClick={() =>
+                  trackOutboundClick("contact", {
+                    label: link.label,
+                    url: link.href
+                  })
+                }
                 rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
               >

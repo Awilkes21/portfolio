@@ -1,4 +1,5 @@
 import type { Project } from "@/data/projects";
+import { trackOutboundClick } from "@/lib/analytics";
 
 type ProjectCardProps = {
   index: number;
@@ -83,6 +84,12 @@ export function ProjectCard({
                 aria-label={`View ${project.title} source code`}
                 className="button-secondary focus-ring px-3 py-2 text-sm"
                 href={project.githubUrl}
+                onClick={() =>
+                  trackOutboundClick("project_source", {
+                    project: project.title,
+                    url: project.githubUrl || ""
+                  })
+                }
                 rel="noreferrer"
                 target="_blank"
               >
@@ -94,6 +101,12 @@ export function ProjectCard({
                 aria-label={`View ${project.title} demo`}
                 className="button-primary focus-ring px-3 py-2 text-sm"
                 href={project.demoUrl}
+                onClick={() =>
+                  trackOutboundClick("project_demo", {
+                    project: project.title,
+                    url: project.demoUrl || ""
+                  })
+                }
                 rel="noreferrer"
                 target="_blank"
               >
